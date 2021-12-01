@@ -16,6 +16,7 @@
     RED = (255, 0, 0)
     GREEN = (0, 255, 0)
     BLUE = (0, 0, 255)
+    SKYBLUE (179, 241, 255)
 
     # Setup Fonts
     basicFont = pygame.font.SysFont(None, 48)
@@ -27,7 +28,7 @@
     textRect.centery = windowSurface.get_rect(). centery
 
     # Draw background onto window surface.
-    windowSurface.fill(WHITE)
+    windowSurface.fill(SKYBLUE)
 
     #Draw a green polygon onto the surface.
     pygame.draw.polygon(windowSurface, GREEN,((146, 0),(291, 106),(236,277), (56, 277),(0,106)))
@@ -42,4 +43,16 @@
 
     # Draw an ellipse.
     pygame.draw.line(windowSurface, BLUE,(300, 250, 40, 80), 1)
-    
+ 
+  # Draw text background rectangle onto surface. NEW STARTING WEDNESDAY  
+  pygame.draw.rect(windowsSurface, RED, (textRect.left - 20, textRect.top - 20, textRect.width + 40, textRect.height +40))
+
+  #Get a pixel array of the surface.
+  pixArray = pygame.PixelArray(windowSurface)
+  pixArray[480][380] = BLACK
+  del pixArray
+
+  # Draw the text onto the surface
+  windowSurface.blit(text, textRect)
+
+  
