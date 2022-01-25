@@ -1,6 +1,6 @@
-# Simple Animation with Pygame, Kelvin Jackson, 1/7/2022, 9:03, v0.6
+# Simple Animation with Pygame, Kelvin Jackson, 1/25/2022, 8:53, v0.8
 
-from PyGamePractice import GREEN
+
 import pygame, sys, time 
 from pygame.locals import *
 
@@ -70,5 +70,20 @@ while True:
                      b['dir'] == UPLEFT
                   if b['dir'] == DOWNRIGHT:
                       b['dir'] = UPRIGHT
-              if b['dir'] == DOWNLEFT:
-                     
+              if b['rect'].left < 0:
+                  # The box has mvoed past the left
+                    if b['dir'] == DOWNLEFT:
+                     b['dir'] == DOWNRIGHT
+              if b['dir'] == UPLEFT:
+                      b['dir'] = UPRIGHT 
+              if b['dir'] == DOWNRIGHT:
+                  b['dir'] = DOWNLEFT
+              if b['rect'].bottom > WINDOWHEIGHT:
+                  # The box has moved past the right      
+                  if b['dir'] == DOWNRIGHT:
+                     b['dir'] == DOWNLEFT
+                  if b['dir'] == UPRIGHT:
+                     b['dir'] = UPLEFT
+            # Draw the box onto the game surface.
+        pygame.display.update()
+        time.sleep(0.02)
