@@ -1,11 +1,11 @@
 # Simple Animation with Pygame, Kelvin Jackson, 1/25/2022, 8:53, v0.8
-
+# I found a few bugs you need to fix please.  Look at the new comments I added.  
 
 import pygame, sys, time 
 from pygame.locals import *
 
 # Setup Pygame
-pygame.inti()
+pygame.init() # FIX.  should be .init() 
 
 
 WINDOWWIDTH = 400
@@ -14,7 +14,7 @@ windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT), 0, 32)
 pygame.display.set_caption('Animation Example!')
 
 # Setup the direction variable.
-DOWNLEFT = 'down left'
+DOWNLEFT = 'downleft' # Fix 'downleft' 
 DOWNRIGHT = 'downright'
 UPLEFT = 'upleft'
 UPRIGHT = 'upright'
@@ -37,9 +37,9 @@ boxes = [b1, b2, b3]
 # Run the game loop.
 while True:
     for event in pygame.event.get():
-     if event.type == QUIT:
-         pygame.quit()
-         sys.exit()
+        if event.type == QUIT: # Align with 'event' above.
+            pygame.quit() # Align with v in 'event' above.
+            sys.exit() # Align with p in 'pygame' above.' 
 
     windowSurface.fill(WHITE)
     
